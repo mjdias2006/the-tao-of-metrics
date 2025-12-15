@@ -1,0 +1,219 @@
+:root {
+    --bg-color: #f4f4f0; /* Branco papel de arroz */
+    --text-color: #2c2c2c; /* Preto tinta */
+    --accent-red: #b92b27; /* Vermelho chinês */
+    --accent-gold: #d4af37;
+    --font-serif: 'Noto Serif SC', serif;
+    --font-sans: 'Lato', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-sans);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.container {
+    text-align: center;
+    width: 90%;
+    max-width: 500px;
+    padding: 2rem;
+    background: #ffffff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border-radius: 8px;
+    position: relative;
+    border-top: 4px solid var(--accent-red);
+}
+
+/* Tipografia */
+h1 {
+    font-family: var(--font-serif);
+    color: var(--accent-red);
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+}
+
+.subtitle {
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Símbolo Yin Yang em CSS Puro */
+.yin-yang-container {
+    margin: 0 auto 1rem auto;
+    width: 80px;
+    height: 80px;
+}
+
+.yin-yang {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--text-color) 50%, white 50%);
+    border-radius: 50%;
+    border: 2px solid var(--text-color);
+    position: relative;
+    animation: float 6s ease-in-out infinite;
+    transition: transform 1s ease;
+}
+
+.yin-yang:before, .yin-yang:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+    transform: translateY(-50%);
+}
+
+.yin-yang:before {
+    background: white;
+    left: 0;
+    border: 12px solid white; /* Ponto interno preto simulado pelo fundo do after, mas simplificado aqui */
+    background-image: radial-gradient(circle at center, var(--text-color) 3px, white 4px);
+}
+
+.yin-yang:after {
+    background: var(--text-color);
+    left: 50%;
+    background-image: radial-gradient(circle at center, white 3px, var(--text-color) 4px);
+}
+
+/* Inputs e Layout */
+.input-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    font-size: 0.8rem;
+    color: #999;
+    margin-bottom: 0.5rem;
+}
+
+input {
+    border: none;
+    border-bottom: 2px solid #ddd;
+    text-align: center;
+    font-size: 1.5rem;
+    width: 80px;
+    padding: 0.5rem;
+    font-family: var(--font-sans);
+    background: transparent;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    outline: none;
+    border-bottom-color: var(--accent-red);
+}
+
+.separator {
+    font-size: 1.5rem;
+    color: #ccc;
+    margin-top: 1rem;
+}
+
+/* Botões */
+button {
+    background-color: var(--accent-red);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(185, 43, 39, 0.3);
+}
+
+button:hover {
+    background-color: #a0221e;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #999;
+    box-shadow: none;
+    font-size: 0.8rem;
+    margin-top: 1rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-secondary:hover {
+    background-color: transparent;
+    color: var(--text-color);
+    transform: none;
+    text-decoration: underline;
+}
+
+/* Feedback e Estados */
+.hidden {
+    display: none;
+}
+
+.feedback-msg {
+    margin-top: 2rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    min-height: 2rem;
+    color: var(--text-color);
+}
+
+.instruction {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+.input-single {
+    margin-bottom: 2rem;
+}
+
+.input-single input {
+    width: 150px;
+}
+
+/* Animações */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.spinning {
+    animation: spin 1s infinite linear;
+}
+
+.success-anim {
+    animation: spin 3s ease-out;
+}

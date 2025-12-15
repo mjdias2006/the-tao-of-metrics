@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Tao of Metrics</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <main class="container">
+        <header>
+            <div class="yin-yang-container">
+                <div class="yin-yang" id="taoSymbol"></div>
+            </div>
+            <h1>THE-TAO-OF-METRICS</h1>
+            <p class="subtitle">Encontre o equilíbrio nos números</p>
+        </header>
+
+        <section id="setupPhase" class="game-phase active">
+            <div class="input-group">
+                <div class="field">
+                    <label>Início (Min)</label>
+                    <input type="number" id="minVal" value="1" min="0">
+                </div>
+                <div class="separator">~</div>
+                <div class="field">
+                    <label>Fim (Max)</label>
+                    <input type="number" id="maxVal" value="100" max="10000">
+                </div>
+            </div>
+            <button onclick="generateTao()" class="btn-primary">Gerar Destino</button>
+        </section>
+
+        <section id="guessPhase" class="game-phase hidden">
+            <p class="instruction">O número foi gerado entre <span id="displayMin"></span> e <span id="displayMax"></span>.</p>
+            
+            <div class="input-single">
+                <input type="number" id="userGuess" placeholder="Qual é o número?" onkeydown="checkEnter(event)">
+            </div>
+            
+            <button onclick="makeGuess()" class="btn-primary">Tentar Harmonia</button>
+            <button onclick="resetGame()" class="btn-secondary">Reiniciar Caminho</button>
+        </section>
+
+        <div id="feedback" class="feedback-msg"></div>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
